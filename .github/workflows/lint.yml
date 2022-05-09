@@ -3,11 +3,9 @@ on:
   push:
     branches:
       - master
-      - slither
   pull_request:
       branches:
         - master
-        - slither
 jobs:
   run-ci:
     runs-on: ubuntu-latest
@@ -23,7 +21,7 @@ jobs:
         run: forge install
 
       - name: Build contracts
-        run: forge build
+        run: forge build  --extra-output abi --extra-output userdoc --extra-output devdoc --extra-output evm.methodIdentifiers --force
 
       - name: Run Slither
         uses: crytic/slither-action@v0.1.1
