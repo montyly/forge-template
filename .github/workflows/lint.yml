@@ -36,7 +36,7 @@ jobs:
           # The action might eventually package Foundry: https://github.com/crytic/slither-action/issues/5
           ignore-compile: true
           sarif: results.sarif
-          target: .
+          target: "."
 
       - name: Upload SARIF file
         uses: github/codeql-action/upload-sarif@v1
